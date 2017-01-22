@@ -7,7 +7,6 @@
     <md-tab id="Setup" md-label="Setup">
         <setup></setup>
     </md-tab>
-
     <md-tab id="Activation" md-label="Activation">
       <activation></activation>
     </md-tab>

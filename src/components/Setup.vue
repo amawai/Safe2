@@ -10,7 +10,7 @@
   		</md-card-header>
 
   		<md-input-container>
-			<md-button class="md-raised md-primary">RECORD</md-button>
+			<md-button class="md-raised md-primary" v-on:click="onRecord">RECORD</md-button>
 	  	<md-input-container>
 
 	  	<md-input-container>
@@ -22,9 +22,8 @@
 	    	<label>What's your numbah?</label>
 	    	<md-input v-model="numauth" type="number"></md-input>
 	  	</md-input-container>
+      <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
 		</md-card>
-
-		<md-button  v-on:click="setParameters" class="md-raised md-accent">Submit</md-button>
 	</form>
   </div>
 </template>
@@ -43,8 +42,11 @@ export default{
     }
   },
   methods: {
-    setParameters: function (event) {
-      window.alert('YOU PRESSED A BUTTON!')
+    onRecord: function (event) {
+      window.alert('YOU WANNA RECORD SOMETHIN?!')
+    },
+    onSubmit: function (event) {
+      window.alert('YOU PRESSED SUBMIT')
     }
   }
 }
