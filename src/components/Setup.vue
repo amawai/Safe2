@@ -33,12 +33,12 @@ import RecordButton from './RecordButton'
 import { addTraining } from '../db'
 export default{
   name: 'Setup',
-  props: ['userId'],
+  props: ['userId', 'displayName'],
   components: { RecordButton },
   data () {
     return {
       connected: false,
-      name: null,
+      name: (this.displayName) ? this.displayName : '',
       phoneNumber: null,
       emergencyNumber: null,
       status: 'Waiting for input',
