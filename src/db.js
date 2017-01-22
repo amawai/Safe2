@@ -20,6 +20,9 @@ const logout = () => {
   return firebase.auth().signOut()
 }
 
+window.firebase = firebase
+const watchLogin = (x) => firebase.auth().onAuthStateChanged(data => x(data))
+
 const trainingsRef = db.ref().child('trainings')
 
 const addTraining = userId =>
@@ -29,4 +32,4 @@ const addTraining = userId =>
       count: 0
     })
 
-export { login, logout, addTraining }
+export { login, logout, watchLogin, addTraining }
