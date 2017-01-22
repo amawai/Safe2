@@ -16,6 +16,10 @@ const login = () => {
   return firebase.auth().signInWithPopup(provider)
 }
 
+const logout = () => {
+  return firebase.auth().signOut()
+}
+
 const channelsRef = db.ref().child('channels')
 
 const createChannel = (name) =>
@@ -34,4 +38,4 @@ const createMessage = (channelKey, author, message) =>
     })
     .then(a, r))
 
-export { login, channelsRef, createChannel, createMessage }
+export { login, logout, channelsRef, createChannel, createMessage }

@@ -1,28 +1,17 @@
 <template>
   <div>
-    <md-button @click="onClick">Login</md-button>
+    <input-form></input-form>
   </div>
 </template>
 
 <script>
   import InputForm from './components/InputForm'
-  import { login } from './db'
+  import LoginButton from './components/LoginButton'
   export default {
     name: 'app',
-    data () {
-      return {
-        user: null
-      }
-    },
-    methods: {
-      onClick () {
-        login().then(x => {
-          this.user = x
-        })
-      }
-    },
     components: {
-      InputForm
+      InputForm,
+      LoginButton
     }
   }
 </script>
