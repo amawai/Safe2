@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <navigation></navigation>
-    </div>
   	<md-card>
 	    <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
