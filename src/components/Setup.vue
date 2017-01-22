@@ -28,8 +28,10 @@
 </template>
 <script>
 import RecordButton from './RecordButton'
+import { addTraining } from '../db'
 export default{
   name: 'Setup',
+  props: ['userId'],
   components: { RecordButton },
   data () {
     return {
@@ -44,6 +46,15 @@ export default{
     },
     onRecorded (fileUrl) {
       console.log(fileUrl)
+      // update fb object with fileUrl
+    }
+  },
+  mounted () {
+    if (this.userId !== '') {
+      addTraining(this.userId)
+      .then(r => {
+        this.$bindAsObject('trainning', r)
+      })
     }
   }
 }

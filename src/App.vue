@@ -5,7 +5,7 @@
         <register @login="onLogin"></register>
       </md-tab>
       <md-tab id="Setup" md-label="Setup" :md-active="isSetup">
-        <setup></setup>
+        <setup :userId="userId" :key="userId"></setup>
       </md-tab>
       <md-tab id="Activation" md-label="Activation" :md-active="isActivation">
         <activation></activation>
@@ -43,6 +43,9 @@ export default {
     }
   },
   computed: {
+    userId () {
+      return (this.user) ? this.user.user.uid : ''
+    },
     isRegister () {
       return this.currentRoute === '/register'
     },
