@@ -10,7 +10,10 @@
   		</md-card-header>
 
   		<md-input-container>
-			<md-button class="md-raised md-primary" v-on:click="onRecord">RECORD</md-button>
+        <md-button-toggle class="md-warn">
+            <md-button v-on:click="onRecord" class="md-icon-button md-toggle">
+            <md-icon>format_bold</md-icon>
+        </md-button>
 	  	<md-input-container>
 
 	  	<md-input-container>
@@ -43,7 +46,7 @@ export default{
   },
   methods: {
     onRecord: function (event) {
-      window.alert('YOU WANNA RECORD SOMETHIN?!')
+
     },
     onSubmit: function (event) {
       window.alert('YOU PRESSED SUBMIT')
