@@ -4,40 +4,22 @@ import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import VueFire from 'vuefire'
 import App from './App'
-import Activation from './components/Activation'
-import Authentication from './components/Authentication'
-import Setup from './components/Setup'
-import Register from './components/Register'
-import NotFound from './components/NotFound'
 
 /* eslint-disable no-new */
 Vue.use(VueMaterial)
 Vue.use(VueFire)
 
-const routes = {
-  '/': App,
-  '/register': Register,
-  '/setup': Setup,
-  '/activation': Activation,
-  '/authentication': Authentication
-}
-
 new Vue({
   el: '#app',
   components: {
-    App,
-    Register,
-    Setup,
-    Activation,
-    Authentication,
-    NotFound
+    App
   },
-  data: {
-    currentRoute: window.location.pathname
+  data () {
+    return { }
   },
   computed: {
     ViewComponent () {
-      return routes[this.currentRoute] || NotFound
+      return App
     }
   },
   render (h) { return h(this.ViewComponent) }
