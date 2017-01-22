@@ -1,5 +1,5 @@
 <template>
-  <p>authentication</p>
+  <p>Authentication--you are directed here from the URL you were texted</p>
 </template>
 
 <script>

@@ -1,5 +1,8 @@
 <template>
-  <p>Activation</p>
+  <div>
+    <p>Activation--the text will be sent to you in half an hour!</p>
+    <md-button class="md-raised md-accent">ACTIVATE</md-button>
+  </div>
 </template>
 
 <script>

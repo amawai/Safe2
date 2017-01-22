@@ -4,7 +4,7 @@ import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import VueFire from 'vuefire'
 import App from './App'
-import Activate from './components/Activate'
+import Activation from './components/Activation'
 import Authentication from './components/Authentication'
 import Setup from './components/Setup'
 import Register from './components/Register'
@@ -18,7 +18,7 @@ const routes = {
   '/': App,
   '/register': Register,
   '/setup': Setup,
-  '/activate': Activate,
+  '/Activation': Activation,
   '/authentication': Authentication
 }
 
@@ -29,7 +29,7 @@ new Vue({
     App,
     Register,
     Setup,
-    Activate,
+    Activation,
     Authentication,
     NotFound
   },
