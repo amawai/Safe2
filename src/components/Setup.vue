@@ -5,8 +5,15 @@
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
 
+      <div v-show="initSuccess">
+        Init success
+      </div>
+      <div v-show="recording">
+        recording!
+      </div>
+
       <md-button-toggle class="record-container">
-        <md-button v-on:click="onRecordButton" id="buttonToggle" class="md-raised md-accent">
+        <md-button class="md-raised md-accent" @click="onClickMic">
           <md-icon class="md-size-4x">mic</md-icon>
         </md-button>
       </md-button-toggle>
@@ -27,7 +34,10 @@
 
 <script>
 import Navigation from './Navigation'
-import { startRecording, stopRecording } from './main.js'
+import Mic from '../mic'
+
+const mic = new Mic()
+
 export default{
   name: 'Setup',
   component: {
@@ -36,26 +46,52 @@ export default{
   data () {
     return {
       stringauth: null,
-      numauth: null
+      numauth: null,
+      initSuccess: false,
+      recording: false
     }
   },
   methods: {
-    onRecordButton: function (event) {
-      if (true) {
-        startRecording()
+    onSubmit: function (event) {
+      window.alert('YOU PRESSED SUBMIT')
+    },
+    onClickMic () {
+      if (!this.recording) {
+        this.startRecording()
       } else {
-        stopRecording()
+        this.stopRecording()
       }
     },
     startRecording () {
-      startRecording()
+      mic.start()
+      .then(() => {
+        this.recording = true
+      })
+      .catch(e => {
+        this.recording = false
+        window.alert(e)
+      })
     },
     stopRecording () {
-      stopRecording()
-    },
-    onSubmit: function (event) {
-      window.alert('YOU PRESSED SUBMIT')
+      mic.stop()
+      .then(url => {
+        this.recording = false
+        window.alert(url)
+      })
+      .catch(e => {
+        this.recording = false
+        window.alert(e)
+      })
     }
+  },
+  mounted () {
+    mic.init()
+    .then(() => {
+      this.initSuccess = true
+    })
+    .catch(() => {
+      this.initSuccess = false
+    })
   }
 }
 </script>
