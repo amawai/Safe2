@@ -4,7 +4,7 @@
       <navigation></navigation>
     </div>
   	<md-card>
-	     <form novalidate @submit.stop.prevent="submit">
+	    <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
@@ -49,3 +49,8 @@ export default{
   }
 }
 </script>
+<style>
+  div {
+    text-align: center;
+  }
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <navigation></navigation>
   </div>
 </template>
@@ -18,7 +18,9 @@
   }
 </script>
 <style>
-
+  .container{
+    width: 70%;
+  }
   .inputForm {
     padding: 20px;
   }

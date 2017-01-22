@@ -3,10 +3,12 @@
     <navigation></navigation>
       <md-card>
         <md-button-toggle>
-          <md-button  v-on:click="toggleThing" class="md-icon-button">
+          <md-button class="md-icon-button">
             <md-icon>T/V</md-icon>
           </md-button>
         </md-button-toggle>
+
+        <md-switch v-on:change="toggleThing" id="textorvoice" name="textorvoice"></md-switch>
 
         <md-button-toggle>
           <md-button v-model="voice">
@@ -44,3 +46,8 @@ export default{
   }
 }
 </script>
+<style>
+  div {
+    text-align: center;
+  }
+</style>
