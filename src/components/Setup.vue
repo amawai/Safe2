@@ -2,7 +2,7 @@
 	<md-card class="setup-container">
     <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
-  			<div class="md-title">Not changing it yet, when you initially need to setup voice + string authentication</div>
+  			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
       <img class="meme" src="http://i2.kym-cdn.com/photos/images/newsfeed/000/915/822/7b2.jpg" />
 
@@ -21,6 +21,12 @@
 	    	<label>What's your numbah?</label>
 	    	<md-input v-model="numauth" type="number"></md-input>
 	  	</md-input-container>
+
+      <md-input-container>
+	    	<label>What's your emergency contact numbah?</label>
+	    	<md-input v-model="emergencyNumber" type="number"></md-input>
+	  	</md-input-container>
+
       <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
   	</form>
 	</md-card>
@@ -36,7 +42,8 @@ export default{
   data () {
     return {
       stringauth: null,
-      numauth: null
+      numauth: null,
+      emergencyNumber: null
     }
   },
   methods: {
