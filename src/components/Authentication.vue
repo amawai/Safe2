@@ -1,15 +1,15 @@
 <template>
-  <div class="center sliding">
-    <navigation></navigation>
-    <md-card id="jojo">
-      <md-button-toggle>
-        <md-button v-model="voice">
-          <md-icon>REC</md-icon>
-        </md-button>
-      </md-button-toggle>
-      <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
-    </md-card>
-  </div>
+  <md-card class="auth-view">
+    <img style="margin: 0 auto; display: block; width: 100%" src="https://pbs.twimg.com/media/CPB2xJ9WcAAK0G6.jpg" />
+    <br />
+    <h1>Say the password</h1>
+    <md-button-toggle>
+      <md-button v-model="voice" class="md-raised md-accent">
+        <md-icon class="md-size-4x">mic</md-icon>
+      </md-button>
+    </md-button-toggle>
+    <br />
+  </md-card>
 </template>
 
 <script>
@@ -44,10 +44,8 @@ export default{
 
   }
 
-  #jojo {
-    display: -webkit-flex; /* Safari */
-    -webkit-align-items: center; /* Safari 7.0+ */
-    display: flex;
+  .auth-view {
+    margin: 20px;
     align-items: center;
   }
 </style>

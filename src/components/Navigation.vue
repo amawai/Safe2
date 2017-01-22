@@ -11,7 +11,7 @@
         <activation></activation>
       </md-tab>
       <md-tab id="Authentication" md-label="Authentication">
-        <register></register>
+        <authentication />
       </md-tab>
     </md-tabs>
   </div>
