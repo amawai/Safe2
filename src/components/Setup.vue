@@ -6,6 +6,9 @@
   		</md-card-header>
 
       <record-button @recorded="onRecorded" />
+			<div> {{counter}} / 5 </div>
+
+			<md-button class="md-raised">Status: {{statusCheck}}</md-button>
 
 	  	<md-input-container>
 	    	<label>Input a verification message</label>
@@ -21,8 +24,7 @@
 	    	<label>What's your emergency contact numbah?</label>
 	    	<md-input v-model="emergencyNumber" type="number"></md-input>
 	  	</md-input-container>
-
-      <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
+			<md-button class="md-raised md-primary">{{buttonTextCheck}}</md-button>
   	</form>
 	</md-card>
 </template>
@@ -35,7 +37,11 @@ export default{
     return {
       stringauth: null,
       numauth: null,
-      emergencyNumber: null
+      emergencyNumber: null,
+      counter: 0,
+      status: 'Waiting for input',
+      activateNext: '',
+      buttonText: 'TRAIN'
     }
   },
   methods: {
@@ -45,8 +51,23 @@ export default{
     onRecorded (fileUrl) {
       console.log(fileUrl)
     }
+  },
+  computed: {
+    statusCheck: function () {
+      this.status = (this.counter === 5) ? 'Working' : this.status
+      return this.status
+    },
+    nextCheck: function () {
+      this.activateNext = (this.counter === 5) ? '' : 'disabled'
+      return this.activateNext
+    },
+    buttonTextCheck: function () {
+      this.buttonText = (this.counter === 5) ? 'NEXT' : 'TRAIN'
+      return this.buttonText
+    }
   }
 }
+
 </script>
 <style>
   div {
