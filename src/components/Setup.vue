@@ -1,7 +1,10 @@
 <template>
   <div>
+    <div>
+      <navigation></navigation>
+    </div>
   	<md-card>
-	<form novalidate @submit.stop.prevent="submit">
+	    <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
@@ -23,15 +26,16 @@
 
 		<md-button  v-on:click="setParameters" class="md-raised md-accent">Submit</md-button>
 	</form>
-  <div>
-    {{stringauth}}
-  </div>
   </div>
 </template>
 
 <script>
+import Navigation from './Navigation'
 export default{
   name: 'Setup',
+  component: {
+    Navigation
+  },
   data () {
     return {
       stringauth: null,
@@ -45,3 +49,8 @@ export default{
   }
 }
 </script>
+<style>
+  div {
+    text-align: center;
+  }
+</style>
