@@ -1,25 +1,13 @@
 <template>
   <div class="center sliding">
     <navigation></navigation>
-      <md-card id="jojo">
-        <md-button-toggle>
-          <md-button class="md-icon-button">
-            <md-icon>T/V</md-icon>
-          </md-button>
-        </md-button-toggle>
-
-        <md-switch v-on:change="toggleThing" id="textorvoice" name="textorvoice"></md-switch>
-
-        <md-button-toggle>
-          <md-button v-model="voice">
-            <md-icon>REC</md-icon>
-          </md-button>
-        </md-button-toggle>
-
-      <md-input-container>
-        <label>String verification</label>
-        <md-input v-model="message" placeholder="Type the thing!"></md-input>
-      </md-input-container>
+    <md-card id="jojo">
+      <md-button-toggle>
+        <md-button v-model="voice">
+          <md-icon>REC</md-icon>
+        </md-button>
+      </md-button-toggle>
+      <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
     </md-card>
   </div>
 </template>
@@ -41,7 +29,9 @@ export default{
   methods: {
     toggleThing: function (event) {
       this.choice = (this.choice === 'text') ? 'voice' : 'text'
-      window.alert('You selected ' + this.choice)
+    },
+    onSubmit: function (event) {
+      window.alert('YOU PRESSED A BUTTON!')
     }
   }
 }
