@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="center sliding">
     <navigation></navigation>
-      <md-card>
+      <md-card id="jojo">
         <md-button-toggle>
           <md-button class="md-icon-button">
             <md-icon>T/V</md-icon>
@@ -49,5 +49,15 @@ export default{
 <style>
   div {
     text-align: center;
+  }
+  .md-button {
+
+  }
+
+  #jojo {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
   }
 </style>
