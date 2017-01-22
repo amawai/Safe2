@@ -2,7 +2,7 @@
 	<md-card class="setup-container">
     <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
-  			<div class="md-title">Not changing it yet, when you initially need to setup voice + string authentication</div>
+  			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
       <img class="meme" src="http://i2.kym-cdn.com/photos/images/newsfeed/000/915/822/7b2.jpg" />
 
