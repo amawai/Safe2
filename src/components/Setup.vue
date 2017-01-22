@@ -16,6 +16,12 @@
 	    	<label>What's your numbah?</label>
 	    	<md-input v-model="numauth" type="number"></md-input>
 	  	</md-input-container>
+
+      <md-input-container>
+	    	<label>What's your emergency contact numbah?</label>
+	    	<md-input v-model="emergencyNumber" type="number"></md-input>
+	  	</md-input-container>
+
       <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
   	</form>
 	</md-card>
@@ -28,7 +34,8 @@ export default{
   data () {
     return {
       stringauth: null,
-      numauth: null
+      numauth: null,
+      emergencyNumber: null
     }
   },
   methods: {
