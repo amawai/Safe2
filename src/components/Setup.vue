@@ -6,9 +6,11 @@
   		</md-card-header>
       <img class="meme" src="http://i2.kym-cdn.com/photos/images/newsfeed/000/915/822/7b2.jpg" />
 
-  		<md-input-container>
-			<md-button class="md-raised md-primary" v-on:click="onRecord">RECORD</md-button>
-	  	<md-input-container>
+      <md-button-toggle class="record-container">
+        <md-button class="md-raised md-accent">
+          <md-icon class="md-size-4x">mic</md-icon>
+        </md-button>
+      </md-button-toggle>
 
 	  	<md-input-container>
 	    	<label>Input a verification message</label>
@@ -54,6 +56,12 @@ export default{
   .setup-container {
     margin: 40px;
     padding: 20px;
+  }
+  .record-container {
+    padding: 20px;
+  }
+  .record-container .md-button {
+    margin: 0 auto;
   }
   .meme {
     display: block;
