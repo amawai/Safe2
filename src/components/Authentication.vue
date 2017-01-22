@@ -3,6 +3,7 @@
     <img style="margin: 0 auto; display: block; width: 100%" src="https://pbs.twimg.com/media/CPB2xJ9WcAAK0G6.jpg" />
     <br />
     <h1>Say the password</h1>
+    <record-button @recorded="onRecord" />
     <br />
     <record-button @recorded="onRecorded" />
   </md-card>
@@ -29,9 +30,8 @@ export default{
     onSubmit: function (event) {
       window.alert('YOU PRESSED A BUTTON!')
     },
-    onRecorded (fileUrl) {
-      console.log(fileUrl)
-      // update fb object with fileUrl
+    onRecord: function (event) {
+      window.alert(event)
     }
   }
 }
