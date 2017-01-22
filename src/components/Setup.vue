@@ -1,20 +1,15 @@
 <template>
-  <div>
-    <div>
-      <navigation></navigation>
-    </div>
-  	<md-card>
-	    <form novalidate @submit.stop.prevent="submit">
+	<md-card class="setup-container">
+    <form novalidate @submit.stop.prevent="submit">
   		<md-card-header>
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
 
-  		<md-input-container>
-        <md-button-toggle class="md-warn">
-            <md-button v-on:click="onRecord" class="md-icon-button md-toggle">
-            <md-icon>format_bold</md-icon>
+      <md-button-toggle class="record-container">
+        <md-button v-on:click="onRecordButton" id="buttonToggle" class="md-raised md-accent">
+          <md-icon class="md-size-4x">mic</md-icon>
         </md-button>
-	  	<md-input-container>
+      </md-button-toggle>
 
 	  	<md-input-container>
 	    	<label>Input a verification message</label>
@@ -26,13 +21,13 @@
 	    	<md-input v-model="numauth" type="number"></md-input>
 	  	</md-input-container>
       <md-button  v-on:click="onSubmit" class="md-raised md-accent">Submit</md-button>
-		</md-card>
-	</form>
-  </div>
+  	</form>
+	</md-card>
 </template>
 
 <script>
 import Navigation from './Navigation'
+import { startRecording, stopRecording } from './main.js'
 export default{
   name: 'Setup',
   component: {
@@ -45,8 +40,18 @@ export default{
     }
   },
   methods: {
-    onRecord: function (event) {
-
+    onRecordButton: function (event) {
+      if (true) {
+        startRecording()
+      } else {
+        stopRecording()
+      }
+    },
+    startRecording () {
+      startRecording()
+    },
+    stopRecording () {
+      stopRecording()
     },
     onSubmit: function (event) {
       window.alert('YOU PRESSED SUBMIT')
@@ -57,5 +62,19 @@ export default{
 <style>
   div {
     text-align: center;
+  }
+  .setup-container {
+    margin: 40px;
+    padding: 20px;
+  }
+  .record-container {
+    padding: 20px;
+  }
+  .record-container .md-button {
+    margin: 0 auto;
+  }
+  .meme {
+    display: block;
+    margin: 0 auto;
   }
 </style>

@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <navigation></navigation>
-    <p>Activation--the text will be sent to you in half an hour!</p>
+	<md-card class="activation-container">
+    <img style="margin: 0 auto; display: block; width: 100%"
+      src="https://s-media-cache-ak0.pinimg.com/736x/ae/46/5b/ae465b500e1e4cd36cad31a18ef9a93b.jpg" />
     <md-button class="md-raised md-accent" v-on:click="onActivate">ACTIVATE</md-button>
-  </div>
+		<md-card-header>
+      <div class="md-title">Activation--the text will start harassing you!</div>
+		</md-card-header>
+  </md-card>
 </template>
 
 <script>
-import Navigation from './Navigation'
 export default {
   name: 'Activation',
-  components: {
-    Navigation
-  },
   methods: {
     onActivate: function (event) {
       window.alert('YOU PRESSED A BUTTON!')
@@ -21,7 +20,7 @@ export default {
 }
 </script>
 <style>
-  div {
-    text-align: center;
+  .activation-container {
+    margin: 20px;
   }
 </style>
