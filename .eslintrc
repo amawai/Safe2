@@ -1,3 +1,7 @@
 {
-  "extends": "vue"
+  "extends": "vue",
+  "globals": {
+      "MediaSource": true,
+      "Blob": true
+  }
 }

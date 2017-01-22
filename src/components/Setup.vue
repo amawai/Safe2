@@ -4,13 +4,8 @@
   		<md-card-header>
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
-      <img class="meme" src="http://i2.kym-cdn.com/photos/images/newsfeed/000/915/822/7b2.jpg" />
 
-      <md-button-toggle class="record-container">
-        <md-button class="md-raised md-accent">
-          <md-icon class="md-size-4x">mic</md-icon>
-        </md-button>
-      </md-button-toggle>
+      <record-button @recorded="onRecorded" />
 
 	  	<md-input-container>
 	    	<label>Input a verification message</label>
@@ -31,14 +26,11 @@
   	</form>
 	</md-card>
 </template>
-
 <script>
-import Navigation from './Navigation'
+import RecordButton from './RecordButton'
 export default{
   name: 'Setup',
-  component: {
-    Navigation
-  },
+  components: { RecordButton },
   data () {
     return {
       stringauth: null,
@@ -47,11 +39,11 @@ export default{
     }
   },
   methods: {
-    onRecord: function (event) {
-      window.alert('YOU WANNA RECORD SOMETHIN?!')
-    },
     onSubmit: function (event) {
       window.alert('YOU PRESSED SUBMIT')
+    },
+    onRecorded (fileUrl) {
+      console.log(fileUrl)
     }
   }
 }

@@ -2,7 +2,7 @@
   <div>
     <md-tabs md-fixed>
       <md-tab id="Register" md-label="Register" :md-active="isRegister" >
-        <register></register>
+        <register @login="onLogin"></register>
       </md-tab>
       <md-tab id="Setup" md-label="Setup" :md-active="isSetup">
         <setup></setup>
@@ -32,7 +32,14 @@ export default {
   },
   data () {
     return {
+      user: null,
       currentRoute: window.location.pathname
+    }
+  },
+  methods: {
+    onLogin (user) {
+      this.user = user
+      this.currentRoute = '/setup'
     }
   },
   computed: {
