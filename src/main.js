@@ -18,13 +18,12 @@ const routes = {
   '/': App,
   '/register': Register,
   '/setup': Setup,
-  '/Activation': Activation,
+  '/activation': Activation,
   '/authentication': Authentication
 }
 
 new Vue({
   el: '#app',
-  template: '<App/>',
   components: {
     App,
     Register,

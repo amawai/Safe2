@@ -18,9 +18,6 @@
   }
 </script>
 <style>
-  .container{
-    width: 70%;
-  }
   .inputForm {
     padding: 20px;
   }
