@@ -78,6 +78,8 @@ export default class {
       const storage = firebase.storage()
       const space = storage.ref().child('words')
       const fileName = generateUID()
+      let uid = (this.user) ? this.user.user.uid : ''
+      let fullData = [blob, uid]
       const task = space.child(fileName).put(blob)
       task.on('state_changed',
         function () {},

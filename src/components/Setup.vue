@@ -29,6 +29,7 @@
 	</md-card>
 </template>
 <script>
+// import firebase from 'firebase'
 import RecordButton from './RecordButton'
 import { addTraining } from '../db'
 export default{
