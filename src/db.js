@@ -20,22 +20,13 @@ const logout = () => {
   return firebase.auth().signOut()
 }
 
-const channelsRef = db.ref().child('channels')
+const trainingsRef = db.ref().child('trainings')
 
-const createChannel = (name) =>
-  new Promise((a, r) =>
-    channelsRef.push({ name })
-    .then(
-      (x) => a(x.key),
-      r))
-
-const createMessage = (channelKey, author, message) =>
-  new Promise((a, r) =>
-    channelsRef.child(channelKey).child('message').push({
-      author,
-      message,
-      time: firebase.database.ServerValue.TIMESTAMP
+const addTraining = userId =>
+    trainingsRef.push({
+      userId,
+      state: 'recording',
+      count: 0
     })
-    .then(a, r))
 
-export { login, logout, channelsRef, createChannel, createMessage }
+export { login, logout, addTraining }
