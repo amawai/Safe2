@@ -5,18 +5,7 @@
   			<div class="md-title">Setup, when you initially need to setup voice + string authentication</div>
   		</md-card-header>
 
-      <div v-show="initSuccess">
-        Init success
-      </div>
-      <div v-show="recording">
-        recording!
-      </div>
-
-      <md-button-toggle class="record-container">
-        <md-button class="md-raised md-accent" @click="onClickMic">
-          <md-icon class="md-size-4x">mic</md-icon>
-        </md-button>
-      </md-button-toggle>
+      <record-button @recorded="onRecorded" />
 
 	  	<md-input-container>
 	    	<label>Input a verification message</label>
@@ -31,67 +20,24 @@
   	</form>
 	</md-card>
 </template>
-
 <script>
-import Navigation from './Navigation'
-import Mic from '../mic'
-
-const mic = new Mic()
-
+import RecordButton from './RecordButton'
 export default{
   name: 'Setup',
-  component: {
-    Navigation
-  },
+  components: { RecordButton },
   data () {
     return {
       stringauth: null,
-      numauth: null,
-      initSuccess: false,
-      recording: false
+      numauth: null
     }
   },
   methods: {
     onSubmit: function (event) {
       window.alert('YOU PRESSED SUBMIT')
     },
-    onClickMic () {
-      if (!this.recording) {
-        this.startRecording()
-      } else {
-        this.stopRecording()
-      }
-    },
-    startRecording () {
-      mic.start()
-      .then(() => {
-        this.recording = true
-      })
-      .catch(e => {
-        this.recording = false
-        window.alert(e)
-      })
-    },
-    stopRecording () {
-      mic.stop()
-      .then(url => {
-        this.recording = false
-        window.alert(url)
-      })
-      .catch(e => {
-        this.recording = false
-        window.alert(e)
-      })
+    onRecorded (fileUrl) {
+      console.log(fileUrl)
     }
-  },
-  mounted () {
-    mic.init()
-    .then(() => {
-      this.initSuccess = true
-    })
-    .catch(() => {
-      this.initSuccess = false
-    })
   }
 }
 </script>
