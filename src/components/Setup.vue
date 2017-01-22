@@ -6,25 +6,25 @@
   		</md-card-header>
 
       <record-button @recorded="onRecorded" />
-			<div> {{counter}} / 5 </div>
+			<div v-if="connected"> {{training.count}} / 5 </div>
 
-			<md-button class="md-raised">Status: {{statusCheck}}</md-button>
+			<md-button class="md-raised" v-if="connected">Status: {{training.state}}</md-button>
 
 	  	<md-input-container>
-	    	<label>Input a verification message</label>
-	    	<md-input v-model="stringauth" placeholder="Type something you'll remember!"></md-input>
+	    	<label>Your name</label>
+	    	<md-input v-model="name" placeholder="Your name"></md-input>
 	  	</md-input-container>
 
 	  	<md-input-container>
 	    	<label>What's your numbah?</label>
-	    	<md-input v-model="numauth" type="number"></md-input>
+	    	<md-input v-model="phoneNumber" type="number"></md-input>
 	  	</md-input-container>
 
       <md-input-container>
 	    	<label>What's your emergency contact numbah?</label>
 	    	<md-input v-model="emergencyNumber" type="number"></md-input>
 	  	</md-input-container>
-			<md-button class="md-raised md-primary">{{buttonTextCheck}}</md-button>
+			<md-button :disabled="!allowNext" class="md-raised md-primary">Next</md-button>
   	</form>
 	</md-card>
 </template>
@@ -37,13 +37,12 @@ export default{
   components: { RecordButton },
   data () {
     return {
-      stringauth: null,
-      numauth: null,
+      connected: false,
+      name: null,
+      phoneNumber: null,
       emergencyNumber: null,
-      counter: 0,
       status: 'Waiting for input',
-      activateNext: '',
-      buttonText: 'TRAIN'
+      activateNext: ''
     }
   },
   methods: {
@@ -59,11 +58,15 @@ export default{
     if (this.userId !== '') {
       addTraining(this.userId)
       .then(r => {
-        this.$bindAsObject('trainning', r)
+        this.connected = true
+        this.$bindAsObject('training', r)
       })
     }
   },
   computed: {
+    allowNext () {
+      return this.training && this.training.count >= 5
+    },
     statusCheck: function () {
       this.status = (this.counter === 5) ? 'Working' : this.status
       return this.status
