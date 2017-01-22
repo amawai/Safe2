@@ -3,21 +3,17 @@
     <img style="margin: 0 auto; display: block; width: 100%" src="https://pbs.twimg.com/media/CPB2xJ9WcAAK0G6.jpg" />
     <br />
     <h1>Say the password</h1>
-    <md-button-toggle>
-      <md-button v-model="voice" class="md-raised md-accent">
-        <md-icon class="md-size-4x">mic</md-icon>
-      </md-button>
-    </md-button-toggle>
+    <record-button @recorded="onRecord" />
     <br />
   </md-card>
 </template>
 
 <script>
-import Navigation from './Navigation'
+import RecordButton from './RecordButton'
 export default{
   name: 'Authenticate',
   components: {
-    Navigation
+    RecordButton
   },
   data () {
     return {
@@ -32,6 +28,9 @@ export default{
     },
     onSubmit: function (event) {
       window.alert('YOU PRESSED A BUTTON!')
+    },
+    onRecord: function (event) {
+      window.alert(event)
     }
   }
 }
