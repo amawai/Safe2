@@ -1,17 +1,19 @@
 <template>
   <div>
-    <input-form></input-form>
+    <navigation></navigation>
   </div>
 </template>
 
 <script>
   import InputForm from './components/InputForm'
   import LoginButton from './components/LoginButton'
+  import Navigation from './components/Navigation'
   export default {
     name: 'app',
     components: {
       InputForm,
-      LoginButton
+      LoginButton,
+      Navigation
     }
   }
 </script>

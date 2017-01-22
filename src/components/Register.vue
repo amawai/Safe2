@@ -1,9 +1,15 @@
 <template>
-  <p>register</p>
+  <div>
+    <login-button></login-button>
+  </div>
 </template>
 
 <script>
+import LoginButton from './LoginButton'
 export default{
-  name: 'Register'
+  name: 'Register',
+  components: {
+    LoginButton
+  }
 }
 </script>

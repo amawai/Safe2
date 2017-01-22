@@ -17,6 +17,7 @@ export default {
       login().then(x => {
         this.user = x
         this.$emit('login', x)
+        window.location.href = '/setup'
       })
     },
     onClickLogout () {
