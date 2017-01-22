@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { login, logout } from '../db'
+import { login, logout, watchLogin } from '../db'
 
 export default {
   data () {
@@ -25,6 +25,18 @@ export default {
         this.$emit('logout')
       })
     }
+  },
+  mounted () {
+    watchLogin(authData => {
+      if (authData) {
+        console.log('User ' + authData.uid + ' is logged')
+        this.user = authData
+        this.$emit('login', { user: authData })
+      } else {
+        console.log('User is logged out')
+        this.$emit('logout')
+      }
+    })
   }
 }
 </script>
