@@ -73,6 +73,7 @@ export default class {
   }
   stop () {
     return new Promise((resolve, reject) => {
+      this.mediaRecorder.stop()
       const blob = new Blob(this.recordedBlobs, { type: 'audio/wav' })
       const storage = firebase.storage()
       const space = storage.ref().child('words')
